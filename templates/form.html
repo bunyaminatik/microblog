@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form action="{% url 'newpost' %}" method="POST">
+    {% csrf_token %} 
+    <b>Title:</b><input name="title" type="text"/><br/>
+    <b>Content:</b><textarea name="content" type="text" ></textarea><br/>
+    <input type="SUBMIT" value="Post"/><br/><br/>
+</form>
+
+</body>
+</html>

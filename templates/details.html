@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+    <h6>{{ post.createDate }}</h6>
+
+    {% for comment in comments %}
+        
+        <p>{{ comment.content }}</p>
+        <a href="{% url 'deletecomment' comment.id %}">Delete</a>
+    {% endfor %}
+
+<br><br><br>
+    <form action="{% url 'newcomment' post.id %}" method="post">
+                Comment:</td><td><input type="text" name="content"/>
+                {% csrf_token %}
+                <input type="submit" value="Add Comment"/>
+    </form>
+    <br><br>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+        <a href="{% url 'newpost' %}">New Post</a>
+    
+
+    {% if not posts %}
+        <h3>There is no post</h3>
+    {% else %}
+        {% for post in posts %}
+            <a href="{% url 'detailpost' post.id  %}"><h2>{{ post.title }}</h2></a>
+            {{ post.content }}<br/><br/>
+            <a href="{% url 'deletepost' post.id %}">Delete Post</a> 
+            <a href="{% url 'editpost' post.id %}">Edit Post</a>
+            <hr/>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
